@@ -1,11 +1,15 @@
 import { Box, Typography } from "@mui/material";
 import Link from "next/link";
 
-export default function Logo() {
+export default function Logo({
+    fontSize = 24
+}: {
+    fontSize?: number
+}) {
     return (
         <Link href="/">
             <Typography fontWeight={900}
-                fontSize={24}>
+                fontSize={fontSize}>
                 <Box component="span" sx={{
                     color: (theme) => theme.palette.primary.main
                 }}>

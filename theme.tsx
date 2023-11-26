@@ -1,5 +1,5 @@
 import { Components, Theme, createTheme } from "@mui/material";
-import { amber, blue, grey, lightGreen, orange } from "@mui/material/colors";
+import { amber, blue, grey, lightGreen, pink, yellow } from "@mui/material/colors";
 import Link, { LinkProps } from "next/link";
 import { forwardRef } from "react";
 import { Inter } from 'next/font/google'
@@ -34,6 +34,13 @@ const defaultComponents: Components<Omit<Theme, "components">> = {
                 backgroundColor: theme.palette.background.default,
                 boxShadow: "0px 5px 10px rgba(0,0,0, 0.35)",
             })
+        }
+    },
+    MuiChip: {
+        styleOverrides: {
+            root: {
+                color: yellow[200]
+            }
         }
     }
 }
@@ -78,7 +85,10 @@ export const darkTheme = createTheme({
         mode: "dark",
         primary: {
             main: amber[800],
-            contrastText: "white"
+            contrastText: "#fff"
+        },
+        secondary: {
+            main: grey[400]
         },
         text: {
             secondary: grey[600]

@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from './_components/navbar.component'
-import Providers from './provides'
-import Background from './background.component'
+import Providers from './providers'
+import Background from './_components/background.component'
+import Footer from './_components/footer.component'
 
 export const metadata: Metadata = {
   title: 'Edwin Lee',
@@ -15,13 +16,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" style={{
+      scrollBehavior: "smooth"
+    }}>
       <body>
         <Providers>
+          <Background />
+
           <Navbar />
+          
           {children}
 
-          <Background />
+          <Footer />
         </Providers>
       </body>
     </html>

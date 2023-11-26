@@ -2,11 +2,11 @@ import { Typography, alpha } from "@mui/material";
 
 export default function Background() {
     return (
-        <Typography position="fixed"
+        <Typography position="absolute"
             top={0}
             right={0}
-            fontWeight={900}
-            fontSize={250}
+            fontWeight={700}
+            fontSize={300}
             noWrap={true}
             lineHeight={0.7}
             sx={{
