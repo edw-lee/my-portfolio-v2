@@ -1,7 +1,7 @@
-My journey in coding started in 2015 when I first discovered an Augmented Reality plugin for Unity and was obsessed with developing an AR mobile game despite not knowing programming at the time. Soon after, I decided to pursue a degree in Computer Science and after I’ve graduated, I started working as a software engineer. So far, I’ve built software for an [**animation company**](https://ed-online.com.my/), a [**game development company**](https://www.gameka.my/site/) and a [**fintech company**](https://www.excelforce.com.my/).
+Hi, I am a web developer based in Malaysia. I build web sites and full stack web applications.
 \
 \
-Currently, I am working at [**Snovations**](https://www.snovations.com/), building software and web applications for clients. During my free time, I’ll venture into other fields of programming such as robotics and game development. Besides computer work, I also enjoy learning to play guitar, watch movies and occasionally hiking at nearby hiking trails.
+Since 2015, I began pursuing my career in building software and had the opportunities to work with various companies such as an [**animation company**](https://ed-online.com.my/), a [**game development company**](https://www.gameka.my/site/), a [**fintech company**](https://www.excelforce.com.my/) and an [**outsourcing agency**](https://www.snovations.com/).
 \
 \
-I am always looking forward to new and exciting projects that allow me to add value through the software that I’ve created and improve my skills as a web developer.
+My focus is in building interactive software that provide value to the users. I look forward to opportunies where I can contribute and grow as a web developer. Feel free to contact me if you have any enquires or any opportunity where my skills and experience can be useful.

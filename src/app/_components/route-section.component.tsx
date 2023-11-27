@@ -2,31 +2,23 @@
 
 import ReactVisibilitySensor from "react-visibility-sensor";
 import { useRoute } from "../providers/router-provider.provider";
-import { CSSProperties, PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 
 export default function RouteSection({
-    id,
-    style,
-    children
+    route
 }: {
-    id: string,
-    style?: CSSProperties
+    route: string
 } & PropsWithChildren) {
-    const { route, setRoute } = useRoute();
+    const { setRoute } = useRoute();
 
     return (
         <ReactVisibilitySensor partialVisibility={false}
             onChange={(visible: boolean) => {
                 if (visible) {
-                    setRoute(id);
+                    setRoute(route);
                 }
             }} offset={{ bottom: 400 }}>
-            <section id={id} style={{
-                height: 1,
-                ...style
-            }}>
-                {children}
-            </section>
+            <section style={{ height: 1 }}></section>
         </ReactVisibilitySensor>
     )
 }

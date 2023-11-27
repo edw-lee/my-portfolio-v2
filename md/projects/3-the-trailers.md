@@ -1,10 +1,10 @@
 ---
 title: 'The Trailers (Demo)' 
-imageUrl: '/placeholder.jpg'
-skills: ['Next.js', 'Tailwind CSS', 'Express', 'MongoDB']
+imageUrl: '/projects/the-trailers.png'
+skills: ['Next.js', 'Tailwind CSS', 'Express', 'MongoDB', 'Google Cloud Storage']
 sort: 2
-xs: 6
-height: 325
+size: {xs: 12, md: 6}
+height: {xs: 325, sm: 400, md: 350}
 source: "https://github.com/edw-lee/the-trailers-modules"
 link: "https://the-trailers.edwinlee.dev/"
 ---

@@ -12,8 +12,9 @@ export default function AboutMe() {
 
     return (
         <Stack direction="row"
-            spacing={15}
-            alignItems="center">
+            gap={{ xs: 5, lg: 15 }}
+            alignItems="center"
+            flexWrap={{ xs: "wrap", lg: "nowrap" }}>
             <Box sx={{ flexGrow: 1 }}>
                 <Header>About Me</Header>
             </Box>

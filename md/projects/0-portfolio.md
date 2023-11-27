@@ -1,11 +1,11 @@
 ---
 title: 'edwinlee.dev'
-imageUrl: '/placeholder.jpg'
-skills: ['Next.js', 'React', 'TypeScript', 'Material UI']
+imageUrl: '/projects/edwinlee.dev.png'
+skills: ['Next.js', 'React', 'Material UI']
 sort: 0
-xs: 8
-height: 450
-source: "https://github.com/edw-lee/personal-portfolio-v1"
+size: {xs: 12, md: 6, lg: 8}
+height: {xs: 300, sm: 400, lg: 450}
+source: "https://github.com/edw-lee/personal-portfolio-v2"
 ---
 
 My portfolio site build with Next.js.

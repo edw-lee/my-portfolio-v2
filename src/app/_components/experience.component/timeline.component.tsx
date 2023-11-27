@@ -7,6 +7,7 @@ import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import dayjs from "dayjs";
 import React, { useState } from "react";
 import LinkArrow from "../link-arrow.component";
+import { useMobile } from "@/app/providers/mobile.provider";
 
 
 const formatExperienceDuration = (startDate: string, endDate?: string, isCurrent?: boolean) => {
@@ -38,8 +39,11 @@ function TimelineSection<T extends React.ElementType>({
     return (
         <Grid2 {...props}
             container
-            spacing={8}
+            spacing={{ md: 3 }}
+            gap={{ xs: 1, md: 0 }}
+            p={3}
             sx={{
+                border: 1,
                 cursor: "pointer",
                 borderTopWidth: 1,
                 borderColor: "#fff0",
@@ -52,13 +56,13 @@ function TimelineSection<T extends React.ElementType>({
                     backgroundColor: "#fff1"
                 }
             }}>
-            <Grid2 xs={3} textAlign="end">
-                <Typography noWrap>
+            <Grid2 xs={12} md={3} textAlign={{ xs: "left", md: "right" }}>
+                <Typography>
                     {formatExperienceDuration(experience.startDate, experience.endDate, experience.isCurrent)}
                 </Typography>
             </Grid2>
 
-            <Grid2 xs={9}>
+            <Grid2 xs={12} md={9}>
                 <Stack spacing={2}>
                     <Typography fontWeight={700}>
                         {experience.title} @ {experience.company}
@@ -77,7 +81,9 @@ function TimelineSection<T extends React.ElementType>({
                             }}></Box>
                     </NoSsr>
 
-                    <Stack direction="row" gap={1}>
+                    <Stack direction="row"
+                        gap={1}
+                        flexWrap="wrap">
                         {
                             experience.skills.map((skill, idx) => <Chip key={idx} label={skill} color="primary" />)
                         }
@@ -92,10 +98,11 @@ export default function Timeline({ experienceData }: {
     experienceData: ExperienceDataType[]
 }) {
     const [hover, setHover] = useState<number | undefined>();
-
+    const { isMobile } = useMobile();
+    
     return (
         <Stack spacing={2}
-            px={15}>
+            px={{ sm: 4 }}>
             {
                 experienceData.map((experience, idx) => {
                     let hyperLinkProps: Grid2Props<"a"> = {}
@@ -115,8 +122,8 @@ export default function Timeline({ experienceData }: {
                             experience={experience}
                             idx={idx}
                             hover={hover}
-                            onMouseOver={() => setHover(idx)}
-                            onMouseLeave={() => setHover(undefined)} />
+                            onMouseOver={() => !isMobile && setHover(idx)}
+                            onMouseLeave={() => !isMobile && setHover(undefined)} />
                     );
                 })
             }

@@ -6,7 +6,7 @@ export default function Background() {
             top={0}
             right={0}
             fontWeight={700}
-            fontSize={300}
+            fontSize={{ xs: 180, sm: 200, md: 260, lg: 300 }}
             noWrap={true}
             lineHeight={0.7}
             sx={{

@@ -46,17 +46,17 @@ export default function HeroSection() {
             <Stack height="100%"
                 justifyContent="flex-end"
                 sx={{ pointerEvents: "none" }}>
-                <Typography fontSize={32}
+                <Typography fontSize={{ xs: 14, sm: 20, md: 24, lg: 32 }}
                     lineHeight={1}
                     color={(theme) => theme.palette.text.secondary}>
                     React / Angular / .NET / Express / MongoDB / SQL
                 </Typography>
 
                 <Typography fontWeight={700}
-                    fontSize={150}
+                    fontSize={{ xs: 64, sm: 100, md: 125, lg: 150 }}
                     lineHeight={1}
                     noWrap
-                    ml={-1}
+                    ml={{ xs: -0.5, md: -1 }}
                     width="min-content"
                     sx={(theme) => ({
                         backgroundClip: "text",
@@ -71,7 +71,7 @@ export default function HeroSection() {
                     EDWIN LEE
                 </Typography>
 
-                <Typography fontSize={100}
+                <Typography fontSize={{ xs: 44, sm: 68, md: 84, lg: 100 }}
                     lineHeight={1}>
                     Web Developer
                 </Typography>

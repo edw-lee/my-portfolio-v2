@@ -1,5 +1,5 @@
 import { Components, Theme, createTheme } from "@mui/material";
-import { amber, blue, grey, lightGreen, pink, yellow } from "@mui/material/colors";
+import { blue, grey, lightGreen, orange, yellow } from "@mui/material/colors";
 import Link, { LinkProps } from "next/link";
 import { forwardRef } from "react";
 import { Inter } from 'next/font/google'
@@ -41,6 +41,24 @@ const defaultComponents: Components<Omit<Theme, "components">> = {
             root: {
                 color: yellow[200]
             }
+        }
+    },
+    MuiListItemButton: {
+        styleOverrides: {
+            root: ({ theme }) => ({
+                color: theme.palette.text.secondary,
+                "&.Mui-selected": {
+                    color: theme.palette.text.primary,
+                    backgroundColor: "#fff2",
+
+                    "&:hover": {
+                        backgroundColor: "#fff4"
+                    }
+                },
+                "&:hover": {
+                    color: theme.palette.text.primary,
+                }
+            })
         }
     }
 }
@@ -84,14 +102,14 @@ export const darkTheme = createTheme({
     palette: {
         mode: "dark",
         primary: {
-            main: amber[800],
+            main: orange[700],
             contrastText: "#fff"
         },
         secondary: {
             main: grey[400]
         },
         text: {
-            secondary: grey[600]
+            secondary: grey[500]
         },
         background: {
             default: "#131313",

@@ -1,61 +1,72 @@
 "use client"
 
 import { ProjectDataType } from "@/app/types/md.types";
-import Image from "next/image";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
-import { GitHub } from "@mui/icons-material";
+import { GitHub, OpenInNew } from "@mui/icons-material";
 import { Box, BoxProps, Button, Chip, Grid2Props, Link, NoSsr, Stack, Typography } from "@mui/material";
-import React, { useState } from "react";
-import LinkArrow from "../link-arrow.component";
+import React, { useEffect, useRef, useState } from "react";
 
 function ProjectDetailsOverlay({ project, isHover }
     : { project: ProjectDataType, isHover?: boolean }) {
+    const projectDetailsRef = useRef<HTMLDivElement>(null);
+    const [projectDetailsHeight, setProjectDetailsHeight] = useState<number | undefined>(undefined);
+
+    useEffect(() => {
+        if (projectDetailsRef?.current) {
+            setProjectDetailsHeight(projectDetailsRef.current.scrollHeight);
+
+            const resizeObserver = new ResizeObserver(() => {
+                setProjectDetailsHeight(projectDetailsRef.current?.scrollHeight);
+            });
+
+            resizeObserver.observe(projectDetailsRef.current);
+        }
+    }, []);
+
     return (
         <Box width="100%"
-            height="100%"
             position="absolute"
             bottom={0}
             left={0}
             p={3}
             sx={{
-                opacity: 0,
-                transition: "opacity ease-in-out 350ms",
-                cursor: "pointer",
                 backgroundColor: "transparent",
-                backgroundImage: "linear-gradient(0deg, #111D, #1115)",
-                "&:hover": {
-                    opacity: 1
-                }
+                backgroundImage: "linear-gradient(0deg, #000e, #0009)",
             }}>
-            <Stack height="100%"
-                spacing={2}
+            <Stack spacing={isHover ? 1 : 0}
                 justifyContent="flex-end">
+
+                {/* Project Title */}
                 <Typography fontWeight={700}
-                    fontSize={18}>
+                    fontSize={18}
+                    lineHeight={1}>
                     {project.title}
-                    &nbsp;
-                    {
-                        project.link &&
-                        <LinkArrow isActive={isHover} />
-                    }
                 </Typography>
 
-                <NoSsr>
-                    <Box component={"div"}
-                        dangerouslySetInnerHTML={{ __html: project.content }}
-                        sx={{ opacity: 0.8 }} >
-                    </Box>
-                </NoSsr>
+                {/* Project Details */}
+                <Stack ref={projectDetailsRef}
+                    spacing={2}
+                    overflow="hidden"
+                    height={isHover ? projectDetailsHeight : 0}
+                    sx={{
+                        transition: "all ease-in-out 300ms",
+                    }}>
 
-                <Stack direction="row" gap={1} flexWrap={"wrap"}>
-                    {
-                        project.skills.map((skill, idx) =>
-                            <Chip key={idx} label={skill} color="primary" />)
-                    }
-                </Stack>
+                    <Stack component={"div"}
+                        dangerouslySetInnerHTML={{ __html: project.content }}>
+                    </Stack>
 
-                <NoSsr>
-                    <Stack direction="row">
+                    <Stack direction="row"
+                        gap={1}
+                        flexWrap={"wrap"}
+                    >
+                        {
+                            project.skills.map((skill, idx) =>
+                                <Chip key={idx} label={skill} color="primary" />)
+                        }
+                    </Stack>
+
+                    <Stack direction="row" spacing={2}>
                         {
                             project.source &&
                             <Button variant="outlined"
@@ -66,10 +77,21 @@ function ProjectDetailsOverlay({ project, isHover }
                                 Source
                             </Button>
                         }
+                        {
+                            project.link &&
+                            <Button variant="outlined"
+                                href={project.link}
+                                target="_blank"
+                                startIcon={<OpenInNew />}
+                                color="primary">
+                                Visit
+                            </Button>
+                        }
                     </Stack>
-                </NoSsr>
+
+                </Stack>
             </Stack>
-        </Box>
+        </Box >
     )
 }
 
@@ -88,28 +110,24 @@ function ProjectDetail<T extends React.ElementType>({
     return (
         <Grid2
             {...props}
-            xs={project.xs}
-            sm={project.sm}
-            md={project.md}
-            lg={project.lg}
-            xl={project.xl}
+            {...project.size}
             height={project.height}>
             <Box {...boxProps}
                 component="div"
                 height="100%"
                 width="100%"
                 border={1}
-                borderBottom={2}
+                borderTop={2}
                 borderColor={"transparent"}
                 borderRadius={3}
                 overflow="hidden"
                 position="relative"
                 sx={{
                     backgroundColor: "#222",
-                    opacity: hover == idx || hover == undefined ? 1 : 0.3,
-                    transition: "opacity ease-in-out 250ms",
+                    //opacity: hover == idx || hover == undefined ? 1 : 0.3,
+                    transition: "all ease-in-out 250ms",
                     "&:hover": {
-                        borderColor: "#fff5"
+                        borderColor: "#fff1"
                     }
                 }}>
 
@@ -123,7 +141,7 @@ function ProjectDetail<T extends React.ElementType>({
                         height: "100%",
                         objectFit: "cover",
                         transition: "scale ease-in-out 350ms",
-                        scale: hover == idx ? "1.2" : "1"
+                        scale: hover == idx ? "1.05" : "1"
                     }} />
 
                 <ProjectDetailsOverlay project={project} isHover={hover == idx} />
@@ -139,18 +157,7 @@ export default function ProjectsGrid({ projectData }: { projectData: ProjectData
         <Grid2 container spacing={2}>
             {
                 projectData.map((project, idx) => {
-                    let hyperLinkProps: Grid2Props<"a"> = {}
-
-                    if (project.link) {
-                        hyperLinkProps = {
-                            component: "a",
-                            href: project.link,
-                            target: "_blank"
-                        }
-                    }
-
                     return <ProjectDetail
-                        {...hyperLinkProps}
                         key={idx}
                         project={project}
                         idx={idx}

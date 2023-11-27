@@ -7,38 +7,47 @@ import Socials from './_components/socials.component'
 import Spotlight from './_components/spotlight.component'
 import RouteSection from './_components/route-section.component'
 
+function Section({ id }: { id: string }) {
+  return <section id={id} style={{ height: 1 }}></section>
+}
+
 export default function Home() {
   return (
     <Box position={"relative"}>
       <Stack component="main"
-        spacing={30}
+        spacing={{ xs: 15, md: 25 }}
         pb={20}>
         <Box
           component="section"
-          height="100vh"
-          pl={10} pb={5}>
-          <RouteSection id="home" />
+          height="100dvh"
+          pl={{ xs: 2, sm: 5, md: 10 }}
+          pb={5}>
+          <Section id="home"></Section>
+          <RouteSection route="home" />
           <HeroSection />
         </Box>
 
         <Container component={Stack}
-          spacing={30}
+          spacing={{ xs: 15, md: 25 }}
           sx={{
             alignSelf: "center"
           }}>
 
+          <Section id="about"></Section>
           <Box>
-            <RouteSection id="about" />
+            <RouteSection route="about" />
             <AboutMe />
           </Box>
 
+          <Section id="experience"></Section>
           <Box>
-            <RouteSection id="experience" />
+            <RouteSection route="experience" />
             <Experience />
           </Box>
 
+          <Section id="projects"></Section>
           <Box>
-            <RouteSection id="projects" />
+            <RouteSection route="projects" />
             <Projects />
           </Box>
         </Container>

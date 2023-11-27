@@ -1,6 +1,6 @@
 import { GitHub, Instagram, Twitter } from "@mui/icons-material";
 import { GITHUB, INSTAGRAM, TWITTER } from "../constants";
-import { Box, Stack } from "@mui/material";
+import { Box, Link, Stack } from "@mui/material";
 
 const links = [
     {
@@ -16,9 +16,11 @@ const links = [
         href: TWITTER
     }
 ]
+
 export default function Socials() {
     return (
-        <Stack spacing={2}
+        <Stack display={{ xs: "none", md: "flex" }}
+            spacing={2}
             position="fixed"
             right={20}
             top="50%"
@@ -61,4 +63,23 @@ export default function Socials() {
             ></Box>
         </Stack>
     );
+}
+
+export function SocialsFooter() {
+    return (
+        <Stack direction="row"
+            spacing={3}>
+            {
+                links.map((link, idx) =>
+                    <Link key={idx}
+                        component="a"
+                        href={link.href}
+                        target="_blank"
+                        color="text.secondary">
+                        {link.icon}
+                    </Link>
+                )
+            }
+        </Stack>
+    )
 }

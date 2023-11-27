@@ -13,17 +13,21 @@ export type ExperienceDataType = {
     link?: string;
 }
 
-export type ProjectDataType = {
-    title: string;
-    skills: string[];
-    content: string;
-    imageUrl: string;
-    height: string;
-    link?: string;
-    source?: string;
+type ResponsiveSize = {
     xs?: number;
     sm?: number;
     md?: number;
     lg?: number;
     xl?: number;
+}
+
+export type ProjectDataType = {
+    title: string;
+    skills: string[];
+    content: string;
+    imageUrl: string;
+    link?: string;
+    source?: string;
+    size?: ResponsiveSize;
+    height?: ResponsiveSize;
 }
