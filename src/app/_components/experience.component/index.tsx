@@ -14,8 +14,7 @@ export default function Experience() {
 
             <Timeline experienceData={experienceData} />
 
-            <Button href="/experience/EdwinLee_Resume.pdf"
-                target="_blank">
+            <Button href="/experience/EdwinLee_Resume.pdf">
                 View My Resume
             </Button>
         </Stack>

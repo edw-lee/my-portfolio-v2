@@ -1,11 +1,13 @@
 ---
-title: 'Whisper In'
-imageUrl: '/projects/placeholder.jpg'
-skills: ['Next.js', 'React Redux', 'Express', 'MongoDB', 'Google Cloud Platform', 'ChatGPT API', Eleven Labs API, 'Stripe API']
+title: Whisper In
+thumbnail: /projects/whisperin/whisperin-0.png
+images: [/projects/whisperin/whisperin-1.png, /projects/whisperin/whisperin-2.png]
+skills: [Next.js, React Redux, Express, MongoDB, Google Cloud Platform, Vercel, ChatGPT API, Stripe API]
 sort: 1
-size: {xs: 12, md: 6, lg: 4}
-height: {xs: 450, sm: 400, lg: 450}
-link: "https://whisperin-demo.edwinlee.dev/"
+cols: 1
+rows: 2
+link: https://whisperin-demo.edwinlee.dev/
+source: https://github.com/edw-lee/whisper-in-modules
 ---
 
-A social media platform where users can create a chatbot for their profile with ChatGPT for auto-replies and ElevenLabs to clone their voice.
+A social media platform where users can create an AI chatbot for their profile with ChatGPT to reply their messages.

@@ -25,9 +25,10 @@ export type ProjectDataType = {
     title: string;
     skills: string[];
     content: string;
-    imageUrl: string;
+    thumbnail: string;
+    images: string[];
     link?: string;
     source?: string;
-    size?: ResponsiveSize;
-    height?: ResponsiveSize;
+    cols: number;
+    rows: number;
 }

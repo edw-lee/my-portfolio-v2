@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <Box position={"relative"}>
       <Stack component="main"
-        spacing={{ xs: 15, md: 25 }}
+        spacing={{ xs: 15, md: 15 }}
         pb={20}>
         <Box
           component="section"
@@ -28,7 +28,7 @@ export default function Home() {
         </Box>
 
         <Container component={Stack}
-          spacing={{ xs: 15, md: 25 }}
+          spacing={{ xs: 15, md: 20 }}
           sx={{
             alignSelf: "center"
           }}>

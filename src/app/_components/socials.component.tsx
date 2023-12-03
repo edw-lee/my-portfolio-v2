@@ -40,7 +40,6 @@ export default function Socials() {
                     <Box key={idx}
                         component="a"
                         href={link.href}
-                        target="_blank"
                         sx={{
                             opacity: 0.65,
                             transition: "all ease-in-out 250ms",
@@ -74,7 +73,6 @@ export function SocialsFooter() {
                     <Link key={idx}
                         component="a"
                         href={link.href}
-                        target="_blank"
                         color="text.secondary">
                         {link.icon}
                     </Link>

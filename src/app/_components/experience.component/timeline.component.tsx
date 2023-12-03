@@ -110,8 +110,7 @@ export default function Timeline({ experienceData }: {
                     if (experience.link) {
                         hyperLinkProps = {
                             component: "a",
-                            href: experience.link,
-                            target: "_blank"
+                            href: experience.link
                         }
                     }
 

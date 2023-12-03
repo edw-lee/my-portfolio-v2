@@ -20,6 +20,9 @@ export default function RootLayout({
       style={{
         scrollBehavior: "smooth"
       }}>
+      <head>
+        <base target='_blank' />
+      </head>
       <body>
         <Providers>
           <Background />
