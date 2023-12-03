@@ -16,6 +16,7 @@ export default function BackgroundParticles() {
             position="absolute"
             width="100%"
             height="100vh"
+            zIndex={-1}
             top={0}
             left={0}>
             <Particles init={particlesInit}
