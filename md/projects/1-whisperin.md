@@ -7,7 +7,7 @@ sort: 1
 cols: 1
 rows: 2
 link: https://whisperin-demo.edwinlee.dev/
-source: https://github.com/edw-lee/whisper-in-modules
+source: https://github.com/Whisper-In
 ---
 
 A social media platform where users can create an AI chatbot for their profile with ChatGPT to reply their messages.

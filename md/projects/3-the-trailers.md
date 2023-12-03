@@ -5,7 +5,7 @@ images: [/projects/the-trailers/the-trailers-0.png, /projects/the-trailers/the-t
 skills: [Next.js, Tailwind CSS, Express, MongoDB, Google Cloud Storage]
 cols: 3
 rows: 1
-source: https://github.com/edw-lee/the-trailers-modules
+source: https://github.com/The-Trailers
 link: https://the-trailers.edwinlee.dev/
 ---
 
