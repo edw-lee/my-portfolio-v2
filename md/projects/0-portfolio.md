@@ -9,4 +9,4 @@ rows: 1
 source: https://github.com/edw-lee/personal-portfolio-v2
 ---
 
-My portfolio site build with Next.js.
+My personal portfolio website built with Next.js.
