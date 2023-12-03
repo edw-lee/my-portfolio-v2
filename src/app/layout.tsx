@@ -7,7 +7,7 @@ import Footer from './_components/footer.component'
 
 export const metadata: Metadata = {
   title: 'Edwin Lee',
-  description: 'Edwin Lee Web Developer Portfolio',
+  description: 'I build interactive applications that provide value to the users',
 }
 
 export default function RootLayout({
@@ -21,7 +21,8 @@ export default function RootLayout({
         scrollBehavior: "smooth"
       }}>
       <head>
-        <base target='_blank' />
+        <base target='_blank' />     
+        <link rel='icon' href='/favicon.ico' sizes='any'/>   
       </head>
       <body>
         <Providers>
