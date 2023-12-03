@@ -11,3 +11,6 @@ source: https://github.com/edw-lee/whisper-in-modules
 ---
 
 A social media platform where users can create an AI chatbot for their profile with ChatGPT to reply their messages.
+\
+\
+**This app is no longer a live project and is only used for demonstration purposes only*.
