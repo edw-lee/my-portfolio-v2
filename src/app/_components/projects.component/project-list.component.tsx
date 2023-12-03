@@ -4,7 +4,7 @@ import { ProjectDataType } from "@/app/types/md.types";
 import { Close, GitHub, OpenInNew } from "@mui/icons-material";
 import { Box, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Chip, Dialog, DialogContent, DialogProps, DialogTitle, Grow, IconButton, ImageList, ImageListItem, ImageListItemBar, Stack, Typography, Zoom } from "@mui/material";
 import { TransitionProps } from "@mui/material/transitions";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Carousel from "../carousel.component";
 
 const Transition = React.forwardRef(function Transition(
@@ -26,6 +26,18 @@ function ProjectDetailsModal({
     onClose: () => void,
     project?: ProjectDataType
 } & DialogProps) {
+    const [isTansitionEnded, setIsTransitionEnded] = useState(false);
+
+    useEffect(() => {
+        setIsTransitionEnded(false);
+    }, [open]);    
+
+    const onTransitionEnd = () => {        
+        setTimeout(() => {
+            setIsTransitionEnded(true)
+        }, 100);
+    }
+
     return (
         <Dialog
             {...props}
@@ -33,8 +45,15 @@ function ProjectDetailsModal({
             maxWidth="md"
             fullWidth
             onClose={onClose}
+            scroll="body"
             TransitionComponent={Transition}
             closeAfterTransition
+            onTransitionEnd={onTransitionEnd}
+            sx={{
+                ".MuiDialog-container": {
+                    overflowY: isTansitionEnded ? "auto" : "hidden"
+                }
+            }}
         >
             <DialogContent sx={{
                 padding: 0
