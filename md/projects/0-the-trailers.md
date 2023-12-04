@@ -3,7 +3,8 @@ title: The Trailers
 thumbnail: /projects/the-trailers/the-trailers-0.png 
 images: [/projects/the-trailers/the-trailers-0.png, /projects/the-trailers/the-trailers-1.png, /projects/the-trailers/the-trailers-2.png]
 skills: [Next.js, Tailwind CSS, Express, MongoDB, Google Cloud Storage]
-cols: 3
+sort: 0
+cols: 8
 rows: 1
 source: https://github.com/The-Trailers
 link: https://the-trailers.edwinlee.dev/
