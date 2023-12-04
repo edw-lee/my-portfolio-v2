@@ -30,9 +30,9 @@ function ProjectDetailsModal({
 
     useEffect(() => {
         setIsTransitionEnded(false);
-    }, [open]);    
+    }, [open]);
 
-    const onTransitionEnd = () => {        
+    const onTransitionEnd = () => {
         setTimeout(() => {
             setIsTransitionEnded(true)
         }, 100);
@@ -153,7 +153,10 @@ export default function ProjectList({ projectData }: { projectData: ProjectDataT
 
     return (
         <>
-            <ImageList cols={3} sx={{ overflow: "visible" }}>
+            <ImageList cols={12}                
+                sx={{
+                    overflow: "visible",
+                }}>
                 {
                     projectData.map((project, idx) => (
                         <ImageListItem key={idx}
@@ -166,6 +169,7 @@ export default function ProjectList({ projectData }: { projectData: ProjectDataT
                             onMouseOver={() => setHover(idx)}
                             onMouseLeave={() => setHover(undefined)}
                             sx={{
+                                backgroundColor: "#000",
                                 cursor: "pointer",
                                 transition: "all ease-in-out 250ms",
                                 WebkitTransition: "all ease-in-out 250ms",
@@ -176,10 +180,16 @@ export default function ProjectList({ projectData }: { projectData: ProjectDataT
                                 boxShadow: isHover(idx) ? "0 0 15px #0007" : undefined,
                                 filter: isHover(idx) || hover == undefined ? undefined : "brightness(50%)"
                             }}>
-                            <img src={project.thumbnail}
+                            <Box component="img"
+                                src={project.thumbnail}
                                 alt={project.title}
                                 loading="lazy"
-                            />
+                                height="100%"
+                                sx={{
+                                    objectFit: "cover",
+                                    objectPosition: "left"
+                                }}
+                            ></Box>
 
                             <ImageListItemBar
                                 title={project.title}
