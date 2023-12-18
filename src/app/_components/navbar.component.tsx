@@ -5,8 +5,9 @@ import Logo from "./logo.component";
 import ContactMeButton from "./contact-me-btn.component";
 import { useRoute } from "../providers/router-provider.provider";
 import { FeedOutlined, HomeOutlined, InfoOutlined, Menu, MenuOpenOutlined, WorkOutline } from "@mui/icons-material";
-import { useState } from "react";
+import React, { useState } from "react";
 import { SocialsFooter } from "./socials.component";
+import { useRouter } from "next/navigation";
 
 const NavbarLink = styled(Link)(({ theme }) => ({
     color: theme.palette.text.secondary,
@@ -37,11 +38,18 @@ const NavbarLink = styled(Link)(({ theme }) => ({
     }
 }));
 
-const LINKS = [
-    { label: "Home", link: "#home", route: "home", icon: <HomeOutlined /> },
-    { label: "About", link: "#about", route: "about", icon: <InfoOutlined /> },
-    { label: "Experience", link: "#experience", route: "experience", icon: <WorkOutline /> },
-    { label: "Projects", link: "#projects", route: "projects", icon: <FeedOutlined /> }
+interface ILink {
+    label: string;
+    id: string;
+    route: string;
+    icon: React.ReactNode
+}
+
+const LINKS: ILink[] = [
+    { label: "Home", id: "#home", route: "home", icon: <HomeOutlined /> },
+    { label: "About", id: "#about", route: "about", icon: <InfoOutlined /> },
+    { label: "Experience", id: "#experience", route: "experience", icon: <WorkOutline /> },
+    { label: "Projects", id: "#projects", route: "projects", icon: <FeedOutlined /> }
 ]
 
 function Nav({ route, ...props }
@@ -55,7 +63,7 @@ function Nav({ route, ...props }
             {
                 LINKS.map((link, idx) =>
                     <NavbarLink key={idx}
-                        href={link.link}
+                        href={link.id}
                         className={link.route == route ? "active" : undefined}>
                         {link.label}
                     </NavbarLink>
@@ -70,6 +78,11 @@ function Nav({ route, ...props }
 function SidebarNav({ route, ...props }
     : { route?: string } & BoxProps) {
     const [open, setOpen] = useState(false);
+    const router = useRouter();
+
+    const onLinkClick = (link: ILink) => {
+        setOpen(false);
+    }
 
     return (
         <Box {...props}>
@@ -98,14 +111,19 @@ function SidebarNav({ route, ...props }
                                 disablePadding sx={{
                                     my: 1
                                 }}>
-                                <ListItemButton href={link.link}
-                                    selected={link.route == route}
-                                    onClick={() => setOpen(false)}>
-                                    <ListItemIcon>
-                                        {link.icon}
-                                    </ListItemIcon>
-                                    <ListItemText primary={link.label} />
-                                </ListItemButton>
+                                <Link href={link.id} sx={{
+                                    flexGrow: 1,
+                                    textDecoration: "none"
+                                }}>
+                                    <ListItemButton
+                                        selected={link.route == route}
+                                        onClick={() => onLinkClick(link)}>
+                                        <ListItemIcon>
+                                            {link.icon}
+                                        </ListItemIcon>
+                                        <ListItemText primary={link.label} />
+                                    </ListItemButton>
+                                </Link>
                             </ListItem>
                         )
                     }
