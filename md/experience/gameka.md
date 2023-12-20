@@ -7,4 +7,4 @@ skills: ['Unity', 'C#']
 link: https://www.gameka.my/
 ---
 
-Develop desktop and mobile games for clients and in-house productions.
+Developed desktop and mobile games for clients and in-house productions.

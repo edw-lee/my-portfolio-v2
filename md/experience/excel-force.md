@@ -7,4 +7,4 @@ skills: ['HTML', 'CSS', 'JavaScript', '.NET', 'MSSQL']
 link: https://www.excelforce.com.my/
 ---
 
-Implement change requests for a stock trading system based on client requirements and provide technical support to troubleshoot issues faced by clients.
+Implemented change requests for a stock trading system based on client requirements and provide technical support to troubleshoot issues faced by clients.

@@ -7,4 +7,4 @@ skills: ['Unity', 'C#']
 link: https://ed-online.com.my
 ---
 
-Develop mobile apps for in-house animation productions.
+Developed mobile apps for in-house animation productions.
