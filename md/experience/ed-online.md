@@ -1,5 +1,5 @@
 ---
-company: 'eD-ONLINE Technologies'
+company: 'Ed-Online Technologies'
 title: 'Mobile App Developer'
 startDate: '2015-January'
 endDate: '2016-June'

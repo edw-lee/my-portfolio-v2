@@ -19,8 +19,6 @@ const formatExperienceDuration = (startDate: string, endDate?: string, isCurrent
         return `${start.format(format)} - Present`
     } else if (start.year() == end.year()) {
         return `${start.format("MMM")} - ${end.format(format)}`
-    } else if (start.month() == end.month()) {
-        return `${start.year()} - ${end.year()}`
     } else {
         return `${start.format(format)} - ${end.format(format)}`
     }
@@ -85,7 +83,7 @@ function TimelineSection<T extends React.ElementType>({
                         gap={1}
                         flexWrap="wrap">
                         {
-                            experience.skills.map((skill, idx) => <Chip key={idx} label={skill} color="primary" />)
+                            experience.skills?.map((skill, idx) => <Chip key={idx} label={skill} color="primary" />)
                         }
                     </Stack>
                 </Stack>
